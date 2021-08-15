@@ -1,0 +1,39 @@
+<template>
+	<div class="row mt-2">
+	<div class="col form-group">
+		<select class="form-control" v-on:change="changePageSize">
+			<option value="5">5 per page</option>
+			<option value="10">10 per page</option>
+			<option value="15">15 per page</option>
+		</select>
+	</div>
+	<div class="text-right">
+		<div class="btn-group mx-2">
+			<button v-for="i in pageNumbers" v-bind:key="i"
+			class="btn btn-secpmdary"
+			v-bind:class="{ 'btn-primary': i == currentPage }"
+			v-on:click="setCurrentPage(i)">
+			{{ i }}
+			</button>
+		</div>
+	</div>
+	</div>
+</template>
+<script>
+	import { mapState, mapGetters, mapMutations } from "vuex";
+		export default {
+			computed: {
+			...mapState(["currentPage"]),
+			...mapGetters(["pageCount"]),
+			pageNumbers() {
+			return [...Array(this.pageCount + 1).keys()].slice(1);
+			}
+		},
+		methods: {
+		...mapMutations(["setCurrentPage","setPageSize"]),
+		changePageSize($event){
+			this.setPageSize(Number($event.target.value))
+		}
+		}
+	}
+</script>
