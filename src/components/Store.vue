@@ -8,6 +8,7 @@
 				<CategoryControls />
 			</div>
 			<div class="col-9 p-2">
+				<Search />
 				<ProductList />
 			</div>
 		</div>
@@ -24,7 +25,12 @@ import ProductList from "./ProductList";
 import CategoryControls from "./CategoryControls";
 import Header from "./Header";
 import Footer from "./Footer";
+import Search from "./Search";
+import { mapMutations } from "vuex";
 export default {
-	components: { Header, Footer, ProductList, CategoryControls },
+	components: { Header, Footer, ProductList, CategoryControls, Search },
+	methods: {
+		...mapMutations(["setShowSearch"]),
+	},
 };
 </script>
