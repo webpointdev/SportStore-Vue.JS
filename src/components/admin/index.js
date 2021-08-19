@@ -1,29 +1,31 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-
 import Store from "../components/Store";
 import ShoppingCart from "../components/ShoppingCart";
-
 import Checkout from "../components/Checkout";
 import OrderThanks from "../components/OrderThanks";
-
-import Authtication from "../components/admin/Authentication";
-import Admin from "../components/admin/Admin";
-
-import ProductAdmin from "../components/admin/ProductAdmin";
-import OrderAdmin from "../components/admin/OrderAdmin";
-
-import ProductEditor from "../components/admin/ProductEditor";
+const Authentication = () =>
+	import(
+		/* webpackChunkName: "admin" */ "../components/admin/Authentication"
+	);
+const Admin = () =>
+	import(/* webpackChunkName: "admin" */ "../components/admin/Admin");
+const ProductAdmin = () =>
+	import(/* webpackChunkName: "admin" */ "../components/admin/ProductAdmin");
+const OrderAdmin = () =>
+	import(/* webpackChunkName: "admin" */ "../components/admin/OrderAdmin");
+const ProductEditor = () =>
+	import(/* webpackChunkName: "admin" */ "../components/admin/ProductEditor");
 import dataStore from "../store";
 Vue.use(VueRouter);
-
 export default new VueRouter({
 	mode: "history",
 	routes: [
 		{ path: "/", component: Store },
 		{ path: "/cart", component: ShoppingCart },
 		{ path: "/checkout", component: Checkout },
-		{ path: "/login", component: Authtication },
+		{ path: "/thanks/:id", component: OrderThanks },
+		{ path: "/login", component: Authentication },
 		{
 			path: "/admin",
 			component: Admin,
@@ -44,7 +46,6 @@ export default new VueRouter({
 				{ path: "", redirect: "/admin/products" },
 			],
 		},
-		{ path: "/thanks/:id", component: OrderThanks },
 		{ path: "*", redirect: "/" },
 	],
 });

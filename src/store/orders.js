@@ -1,7 +1,9 @@
 import Axios from "axios";
 import Vue from "vue";
 
-const ORDERS_URL = "http://localhost:3500/orders";
+//preparing data store
+const ORDERS_URL = "/api/orders";
+// const ORDERS_URL = "http://localhost:3500/orders";
 
 export default {
 	state: {

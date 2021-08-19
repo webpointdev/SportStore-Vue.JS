@@ -1,5 +1,7 @@
 import Axios from "axios";
-const loginUrl = "http://localhost:3500/login";
+//preparing data store
+const loginUrl = "/api/login";
+// const loginUrl = "http://localhost:3500/login";
 export default {
 	state: {
 		authenticated: false,

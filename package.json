@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "json":"json-server data.js -p 3500 -m authMiddleware.js"
+    "json": "json-server data.js -p 3500 -m authMiddleware.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -25,6 +25,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "express": "^4.16.3",
     "faker": "^4.1.0",
     "json-server": "^0.12.1",
     "jsonwebtoken": "^8.1.1",
